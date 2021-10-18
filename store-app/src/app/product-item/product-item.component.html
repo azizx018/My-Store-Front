@@ -1,12 +1,12 @@
 <img src="{{product.imageUrl}}">
 <p>{{product.productName}}</p>
 <p>{{product.price}}</p>
-<select name="amount" id="amount">
+<select name="quantity" id="quantity">{{product.quantity}}
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
     <option value="4">4</option>
   </select>
-<button >Add to Cart</button>
+<button (click)="addToCart(product)">Add to Cart</button>
 
 <br>
