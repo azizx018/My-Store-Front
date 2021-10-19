@@ -1,15 +1,13 @@
 <h1>Your Cart</h1>
 
+ <ul *ngFor="let product of productList">
+    <img src="{{product.imageUrl}}">
+    <li>{{product.productName}}</li>
+    <li>Price: ${{product.price}}</li>
+    <li>Quantity:{{product.quantity}}</li>
 
-<img src="{{productList.imageUrl}}">
-<p>{{productList.productName}}</p>
-<p>{{productList.price}}</p>
-<select name="quantity" id="quantity">{{productList.quantity}}
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-  </select>
+</ul>
+
 
 
   <h2>Total:</h2>

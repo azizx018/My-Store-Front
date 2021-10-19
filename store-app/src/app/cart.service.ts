@@ -17,7 +17,7 @@ export class CartService {
 
   addToCart(product: Product) {
     this.productList.push(product);
-    return this.productList
+    return this.productList;
 
   }
   clearCart() {

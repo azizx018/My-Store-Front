@@ -22,9 +22,9 @@ export class ProductItemComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
   addToCart(product: Product): void {
     this.cartService.addToCart(product);
     alert("Item has been added to your cart!")
   }
+
 }
