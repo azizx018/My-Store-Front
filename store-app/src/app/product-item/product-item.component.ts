@@ -13,10 +13,10 @@ export class ProductItemComponent implements OnInit {
   constructor(private cartService: CartService) {
     this.product = {
       id: 0,
-      imageUrl: '',
-      productName: '',
+      url: '',
+      name: '',
       price: 1,
-      quantity: 1
+      description: ''
     }
   }
 
