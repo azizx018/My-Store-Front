@@ -9,11 +9,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+
+  }
 
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>('./assets/data.json');
   }
+
 
 }
 
