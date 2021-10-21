@@ -7,7 +7,7 @@
         <mat-card-header>
           <mat-card-title>{{product.name}}</mat-card-title>
         </mat-card-header>
-        <img mat-card-image src="{{product.url}}" (click)="goToDetails()">
+        <img mat-card-image src="{{product.url}}" (click)="goToDetails('productDetails')">
         <mat-card-content>
           <p>{{product.price}}</p>
         </mat-card-content>
