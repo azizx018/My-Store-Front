@@ -9,6 +9,13 @@ import { CartComponent } from './cart/cart.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http'
+import { FormsModule } from '@angular/forms';
+import { AddPaymentComponent } from './add-payment/add-payment.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+
+
 
 @NgModule({
   declarations: [
@@ -16,14 +23,19 @@ import { HttpClientModule } from '@angular/common/http'
     ProductListComponent,
     ProductItemComponent,
     CartComponent,
-    NavBarComponent
+    NavBarComponent,
+    AddPaymentComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
