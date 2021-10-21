@@ -31,4 +31,5 @@ export class ProductItemComponent implements OnInit {
   goToDetails(pageName: string) {
     this.router.navigate([`${pageName}`])
   }
+
 }
