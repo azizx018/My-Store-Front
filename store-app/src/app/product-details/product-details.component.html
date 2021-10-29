@@ -1,3 +1,8 @@
 
+<div *ngIf="product !== undefined" class="detail-container">
+    <img *ngIf="product !== undefined" [src]="product.url">
+    <p>{{product.name}}</p>
+</div>
+
 
 <p (click)="goToHome('')">Back to Home</p>

@@ -1,16 +1,22 @@
 <h1>Your Cart</h1>
 
- <ul *ngFor="let product of productList">
+ <div *ngFor="let product of productList">
     <img src="{{product.url}}">
-    <li>{{product.name}}</li>
-    <li>Price: ${{product.price}}</li>
+    <p>{{product.name}}</p>
+    <p>Price: ${{product.price}}</p>
     
 
-</ul>
+      <p>Quantity:{{product.quantity}}</p>
+        <button class="btn btn-primary" style="margin-right: 10px;" >+</button>
+        <button class="btn btn-primary" style="margin-right: 10px;" >-</button>
 
+       
+</div>
 
 
   <h2>Total:</h2>
 <br>
 
-<button (click)="clearCart()">Clear Cart</button>
+
+
+<button class="btn btn-primary" style="margin-right: 10px;" (click)="clearCart()">Clear Cart</button>

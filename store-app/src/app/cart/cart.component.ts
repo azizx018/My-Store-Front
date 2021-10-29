@@ -8,8 +8,11 @@ import { Product } from '../models/products';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
+
 export class CartComponent implements OnInit {
   productList: Product[] = [];
+
+
 
   constructor(private cartService: CartService) {
 
@@ -25,5 +28,14 @@ export class CartComponent implements OnInit {
     this.productList = [];
     alert("Cart has been cleared.");
   }
+  // increaseQuantity(quantity: number): void {
+  //   this.productList.quantity += 1;
+  //   console.log(quantity)
+  // }
+  // decreaseQuantity(quantity: number): void {
+  //   quantity -= 1;
+  //   console.log(quantity)
+
+  // }
 
 }

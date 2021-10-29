@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ProductService {
-
+  products: Product[] = [];
   constructor(private http: HttpClient) {
 
   }
@@ -17,6 +17,17 @@ export class ProductService {
     return this.http.get<Product[]>('./assets/data.json');
   }
 
+  getProductArray() {
+    this.getProducts().subscribe(product => {
+      this.products = product;
+    });
+    return this.products;
+  }
+
+  findProduct(id: number): Product | undefined {
+    this.getProductArray();
+    return this.products.find(p => p.id === id);
+  }
 
 }
 

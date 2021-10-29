@@ -7,6 +7,7 @@ import { Product } from './models/products';
 })
 export class CartService {
   productList: Product[] = [];
+
   constructor() {
 
   }
@@ -16,12 +17,24 @@ export class CartService {
   }
 
   addToCart(product: Product) {
-    this.productList.push(product);
-    return this.productList;
-
+    const existsInCart = this.productList
+      .find(({ name }) => name === product.name);
+    if (!existsInCart) {
+      this.productList.push({ ...product, quantity: 1 });
+      console.log(this.productList)
+      return;
+    }
+    existsInCart.quantity += 1;
   }
+
   clearCart() {
     this.productList = [];
     return this.productList;
+  }
+  cartTotal() {
+
+  }
+  updateCart() {
+
   }
 }
