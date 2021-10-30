@@ -1,20 +1,25 @@
-<h1>Your Cart</h1>
+<h1>Your Cart: ({{productCount()}})</h1>
 
  <div *ngFor="let product of productList">
     <img src="{{product.url}}">
     <p>{{product.name}}</p>
-    <p>Price: ${{product.price}}</p>
-    
-
+    <p>Price: ${{product.price}}</p>  
+    <div>
       <p>Quantity:{{product.quantity}}</p>
-        <button class="btn btn-primary" style="margin-right: 10px;" >+</button>
-        <button class="btn btn-primary" style="margin-right: 10px;" >-</button>
+        <button class="btn btn-primary" style="margin-right: 10px;"
+          (click)="increaseQuantity(product)"
+        >+</button>
+        <button class="btn btn-primary" style="margin-right: 10px;"
+          (click)="decreaseQuantity(product)"
+        >-</button>
+    </div>
+      
 
        
 </div>
 
 
-  <h2>Total:</h2>
+  <h2>Total: ${{total()}}</h2>
 <br>
 
 

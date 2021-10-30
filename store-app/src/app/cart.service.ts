@@ -21,7 +21,6 @@ export class CartService {
       .find(({ name }) => name === product.name);
     if (!existsInCart) {
       this.productList.push({ ...product, quantity: 1 });
-      console.log(this.productList)
       return;
     }
     existsInCart.quantity += 1;
@@ -31,10 +30,9 @@ export class CartService {
     this.productList = [];
     return this.productList;
   }
-  cartTotal() {
 
-  }
-  updateCart() {
-
+  quantityZeroCheck(): Product[] {
+    this.productList = this.productList.filter((product: Product) => product.quantity > 0)
+    return this.productList;
   }
 }

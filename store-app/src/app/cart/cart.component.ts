@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { find } from 'rxjs/operators';
 import { CartService } from '../cart.service';
 import { Product } from '../models/products';
 
@@ -12,7 +13,17 @@ import { Product } from '../models/products';
 export class CartComponent implements OnInit {
   productList: Product[] = [];
 
+  total(): number {
+    return this.productList
+      .map(product => product.price * product.quantity)
+      .reduce((sum, tot) => sum += tot)
+  }
 
+  //product:Product
+  productCount() {
+    return this.productList
+      .reduce((sum, prod) => sum += prod.quantity, 0)
+  }
 
   constructor(private cartService: CartService) {
 
@@ -24,18 +35,20 @@ export class CartComponent implements OnInit {
   }
 
   clearCart(): void {
-    this.cartService.clearCart();
-    this.productList = [];
+    this.productList = this.cartService.clearCart();
     alert("Cart has been cleared.");
   }
-  // increaseQuantity(quantity: number): void {
-  //   this.productList.quantity += 1;
-  //   console.log(quantity)
-  // }
-  // decreaseQuantity(quantity: number): void {
-  //   quantity -= 1;
-  //   console.log(quantity)
 
-  // }
+  decreaseQuantity(product: Product): void {
+    if (product.quantity > 0) {
+      product.quantity -= 1
+    }
+    this.productList = this.cartService.quantityZeroCheck()
+  }
+
+  increaseQuantity(product: Product): void {
+    product.quantity += 1;
+  }
+
 
 }
