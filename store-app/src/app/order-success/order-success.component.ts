@@ -13,9 +13,10 @@ export class OrderSuccessComponent implements OnInit {
   constructor(private cartService: CartService, private router: Router) { }
 
   ngOnInit(): void {
-
-
-
+    this.fullName = this.cartService.fullName
+    this.total = this.cartService.cartTotal()
+    this.cartService.clearCart()
   }
+
 
 }

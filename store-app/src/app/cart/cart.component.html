@@ -1,29 +1,34 @@
 <h1>Your Cart: ({{cartService.productCount()}})</h1>
 
- <div *ngFor="let product of productList">
-    <img src="{{product.url}}">
-    <p>{{product.name}}</p>
-    <p>Price: ${{product.price}}</p>  
-    <div>
-      <p>Quantity:{{product.quantity}}</p>
-        <button class="btn btn-primary" style="margin-right: 10px;"
-          (click)="increaseQuantity(product)"
-        >+</button>
-        <button class="btn btn-primary" style="margin-right: 10px;"
-          (click)="decreaseQuantity(product)"
-        >-</button>
+<div style="display: flex; flex-direction: row; justify-content: space-around; ">
+  
+  <div>
+    <div *ngFor="let product of productList">
+      <img src="{{product.url}}">
+      <p>{{product.name}}</p>
+      <p>Price: ${{product.price}}</p>  
+      <div>
+        <p>Quantity:{{product.quantity}}</p>
+          <button class="btn btn-primary" style="margin-right: 10px;"
+            (click)="increaseQuantity(product)"
+          >+</button>
+          <button class="btn btn-primary" style="margin-right: 10px;"
+            (click)="decreaseQuantity(product)"
+          >-</button>
+      </div>
     </div>
+
+  </div>
+  
+    <div>
+      <h2>Total: ${{cartService.cartTotal()}}</h2>
+  
+<br>
+      <button class="btn btn-primary" style="margin-right: 10px;" (click)="clearCart()">Clear Cart</button>
+      <br>
+      <app-add-payment></app-add-payment>
+    </div>
+</div>
       
 
-       
-</div>
-<div>
-  <app-add-payment></app-add-payment>
-</div>
 
-  <h2>Total: ${{cartService.cartTotal()}}</h2>
-<br>
-
-
-
-<button class="btn btn-primary" style="margin-right: 10px;" (click)="clearCart()">Clear Cart</button>
