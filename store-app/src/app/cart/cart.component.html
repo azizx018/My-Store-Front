@@ -1,4 +1,4 @@
-<h1>Your Cart: ({{productCount()}})</h1>
+<h1>Your Cart: ({{cartService.productCount()}})</h1>
 
  <div *ngFor="let product of productList">
     <img src="{{product.url}}">
@@ -17,9 +17,11 @@
 
        
 </div>
+<div>
+  <app-add-payment></app-add-payment>
+</div>
 
-
-  <h2>Total: ${{total()}}</h2>
+  <h2>Total: ${{cartService.cartTotal()}}</h2>
 <br>
 
 

@@ -14,6 +14,7 @@ import { AddPaymentComponent } from './add-payment/add-payment.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { OrderSuccessComponent } from './order-success/order-success.component';
 
 
 
@@ -25,7 +26,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     CartComponent,
     NavBarComponent,
     AddPaymentComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    OrderSuccessComponent
   ],
   imports: [
     BrowserModule,
