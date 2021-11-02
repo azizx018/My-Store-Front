@@ -17,17 +17,25 @@ export class ProductService {
     return this.http.get<Product[]>('./assets/data.json');
   }
 
-  getProductArray() {
-    this.getProducts().subscribe(product => {
-      this.products = product;
-    });
-    return this.products;
-  }
+  // getProductArray() {
+  //   this.getProducts().subscribe(product => {
+  //     this.products = product;
+  //   });
+  //   return this.products;
+  // }
 
-  findProduct(id: number): Product | undefined {
-    this.getProductArray();
-    return this.products.find(p => p.id === id);
-  }
+
+
+  // syncCart(product: Product) {
+  //   let existsInCart = this.productList
+  //     .find(({ name }) => name === product.name)
+  //   if (!existsInCart) {
+  //     this.productList.push(product)
+  //   } else {
+  //     existsInCart = product
+  //   }
+  //   return this.quantityZeroCheck()
+  // }
 
 }
 

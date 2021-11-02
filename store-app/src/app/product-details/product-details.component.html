@@ -1,8 +1,29 @@
 
-<div *ngIf="product !== undefined" class="detail-container">
-    <img *ngIf="product !== undefined" [src]="product.url">
-    <p>{{product.name}}</p>
+
+   <div *ngIf= "product">
+
+<div class="content">
+    <div fxLayout="row wrap" fxLayoutGap="16px Grid">
+      <div fxFlex="25%" >
+        <mat-card class="mat-elevation-z4">
+          <mat-card-header>
+            <mat-card-title>{{product.name}}</mat-card-title>
+          </mat-card-header>
+          <img mat-card-image src="{{product.url}}">
+          <mat-card-content>
+            <p>${{product.price}}</p>
+            <p>{{product.description}}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            
+            <br>
+            <button class="btn btn-primary" style="margin-right: 10px;" (click)="goToHome('')" >Back to Home</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+  
+    </div>
+    
+  
+  </div>
 </div>
-
-
-<p (click)="goToHome('')">Back to Home</p>

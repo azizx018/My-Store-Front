@@ -7,12 +7,12 @@
         <mat-card-header>
           <mat-card-title>{{product.name}}</mat-card-title>
         </mat-card-header>
-        <img mat-card-image src="{{product.url}}" (click)="goToDetails('productDetails')">
+        <img mat-card-image src="{{product.url}}" (click)="goToDetails('productDetails?id=' + product.id)">
         <mat-card-content>
           <p>{{product.price}}</p>
         </mat-card-content>
         <mat-card-actions>
-          
+        
           
           <br>
           <button class="btn btn-primary" style="margin-right: 10px;" (click)="addToCart(product)" >Add to Cart</button>
