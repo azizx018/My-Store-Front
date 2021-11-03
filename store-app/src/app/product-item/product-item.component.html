@@ -7,9 +7,11 @@
         <mat-card-header>
           <mat-card-title>{{product.name}}</mat-card-title>
         </mat-card-header>
-        <img mat-card-image src="{{product.url}}" (click)="goToDetails('productDetails?id=' + product.id)">
+        <br>
+        <a routerLink="productDetails/{{product.id}}" routerLinkActive="active"><img mat-card-image src="{{product.url}}"></a>
+        
         <mat-card-content>
-          <p>{{product.price}}</p>
+          <p>${{product.price}}</p>
         </mat-card-content>
         <mat-card-actions>
         

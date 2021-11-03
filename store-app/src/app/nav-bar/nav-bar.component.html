@@ -1,6 +1,9 @@
 <div class="navigation">
-    <h1>Store</h1>
+    <h1>Simple Things Store</h1>
     <a routerLink='/'>Products</a>
     <br>
-    <a routerLink='/cart'>Cart</a>
+    <a routerLink='/cart'>
+        <h2>Cart: {{cartService.productCount()}}</h2>
+    </a>
+    
 </div>

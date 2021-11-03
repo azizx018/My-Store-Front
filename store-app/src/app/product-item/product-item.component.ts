@@ -26,11 +26,8 @@ export class ProductItemComponent implements OnInit {
   }
   addToCart(product: Product): void {
     this.cartService.syncCart({ ...product, quantity: 1 });
-    //alert("Item has been added to your cart!")
+    alert("Item has been added to your cart!")
   }
 
-  goToDetails(pageName: string) {
-    this.router.navigate([`${pageName}`])
-  }
 
 }
