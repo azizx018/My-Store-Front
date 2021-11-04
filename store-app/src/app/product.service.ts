@@ -17,12 +17,7 @@ export class ProductService {
     return this.http.get<Product[]>('./assets/data.json');
   }
 
-  // getProductArray() {
-  //   this.getProducts().subscribe(product => {
-  //     this.products = product;
-  //   });
-  //   return this.products;
-  // }
+
 
 
 

@@ -6,7 +6,7 @@ import { Product } from './models/products';
   providedIn: 'root'
 })
 export class CartService {
-  productList: Product[] = [];
+  public productList: Product[] = [];
   fullName: string = '';
 
 
@@ -18,26 +18,43 @@ export class CartService {
     return this.productList;
   }
 
-  syncCart(product: Product) {
-    let existsInCart = this.productList
-      .find(({ name }) => name === product.name)
-    if (!existsInCart) {
-      this.productList.push(product)
-    } else {
-      existsInCart = product
 
+  getProduct(product: Product): Product | undefined {
+    return this.productList.find(({ id }) => id === product.id)
+  }
+
+  addOrIncrementProduct(product: Product) {
+    let existsInCart = this.getProduct(product)
+    if (existsInCart) {
+      existsInCart.quantity++
+    } else {
+      this.productList.push({ ...product, quantity: 1 })
     }
-    return this.quantityZeroCheck()
+  }
+
+  decrementProduct(product: Product) {
+    let existsInCart = this.getProduct(product)
+    if (existsInCart) {
+      existsInCart.quantity--
+    }
+    this.quantityZeroCheck()
+  }
+
+  removeProduct(product: Product) {
+    let existsInCart = this.getProduct(product)
+    if (existsInCart) {
+      existsInCart.quantity = 0
+      this.quantityZeroCheck()
+    }
   }
 
   clearCart() {
     this.productList = [];
-    return this.productList;
   }
 
-  quantityZeroCheck(): Product[] {
+  quantityZeroCheck() {
     this.productList = this.productList.filter((product: Product) => product.quantity > 0)
-    return this.productList;
+
   }
   setName(fullName: string) {
     this.fullName = fullName

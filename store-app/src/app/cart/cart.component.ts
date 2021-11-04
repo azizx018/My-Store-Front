@@ -10,36 +10,34 @@ import { Product } from '../models/products';
 })
 
 export class CartComponent implements OnInit {
-  productList: Product[] = [];
-
 
   constructor(public cartService: CartService) {
 
   }
 
   ngOnInit(): void {
-    this.productList = this.cartService.getCart();
-    this.cartService.cartTotal()
-    this.cartService.productCount()
-
   }
 
   clearCart(): void {
-    this.productList = this.cartService.clearCart();
+    this.cartService.clearCart();
     alert("Cart has been cleared.");
   }
 
   decreaseQuantity(product: Product): void {
-    if (product.quantity > 0) {
-      product.quantity -= 1
-    }
-    this.productList = this.cartService.syncCart(product)
+    this.cartService.decrementProduct(product)
   }
 
   increaseQuantity(product: Product): void {
-    product.quantity += 1;
-    this.productList = this.cartService.syncCart(product)
+    this.cartService.addOrIncrementProduct(product)
   }
 
+  quantityChanged($event: any) {
+    if ($event !== null) {
+      this.cartService.quantityZeroCheck()
+    }
+  }
+  removeItem(product: Product) {
+    this.cartService.removeProduct(product)
 
+  }
 }
