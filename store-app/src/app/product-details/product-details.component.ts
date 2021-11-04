@@ -2,7 +2,7 @@ import { identifierName } from '@angular/compiler';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Product } from '../models/products';
-import { ProductService } from '../product.service';
+import { ProductService } from '../Services/product.service';
 
 
 
