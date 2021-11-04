@@ -25,6 +25,7 @@ export class CartService {
       this.productList.push(product)
     } else {
       existsInCart = product
+
     }
     return this.quantityZeroCheck()
   }
