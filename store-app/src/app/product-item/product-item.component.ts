@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from '../models/products';
 import { CartService } from '../Services/cart.service';
 import { Router } from '@angular/router';
@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ProductItemComponent implements OnInit {
   @Input() product: Product;
+  @Output() addItem: EventEmitter<Product> = new EventEmitter();
 
   constructor(private cartService: CartService, private router: Router) {
     this.product = new Product()
@@ -17,11 +18,13 @@ export class ProductItemComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  addToCart(product: Product) {
-    this.cartService.addOrIncrementProduct(product);
+  // addToCart(product: Product) {
+  //   this.cartService.addOrIncrementProduct(product);
+  //   alert("Item has been added to your cart!")
+  // }
 
-    //alert("Item has been added to your cart!")
+  add(product: Product): void {
+    this.addItem.emit(this.product)
   }
-
 
 }

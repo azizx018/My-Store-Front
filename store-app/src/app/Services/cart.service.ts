@@ -72,4 +72,17 @@ export class CartService {
     return this.productList
       .reduce((sum, prod) => sum += prod.quantity, 0)
   }
+
+
+  addToCart(product: Product) {
+    this.addOrIncrementProduct(product);
+    alert("Item has been added to your cart!")
+  }
+  // addToCart(id: number, name: string, price: number, quantity: number, url: string) {
+  //   let product = { id, name, price, quantity, url };
+  //   // this.cartService.addItem(cartitem);
+  //   this.addOrIncrementProduct(product)as Product
+  //   alert("Item has been added to your cart!")
+  //   //this.addedProduct.emit(product);
+  // }
 }
