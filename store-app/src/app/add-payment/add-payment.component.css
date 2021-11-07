@@ -28,6 +28,7 @@
 }
 
 .form-style-5 input[type="text"],
+.form-style-5 input[type="number"],
 
 .form-style-5 select {
   font-family: Georgia, "Times New Roman", Times, serif;
@@ -50,6 +51,7 @@
 }
 
 .form-style-5 input[type="text"]:focus,
+
 
 .form-style-5 select:focus {
   background: #d2d9dd;
