@@ -15,21 +15,14 @@
         <input type="text" name="address" required minlength="4" [(ngModel)]="address" placeholder="Address">
         <br>
         <p>Credit Card Number</p>
-        <input type = "number" pattern ="[0-9]" name="cardNumber" required minlength="16" placeholder="Credit Card Number" [(ngModel)]="creditCard">
+        <input type = "number" pattern ="[0-9]" name="cardNumber" required maxlength="16" placeholder="Credit Card Number" [(ngModel)]="creditCard">
         <br>
         <p>We will never share your payment information with anyone else.</p>
         <input type="submit" [disabled]="form.invalid" value="Submit" class="btn btn-primary" >
         
     </form>
 
-    <!-- <div *ngIf="customerName.invalid && customerName.dirty">
-        <div *ngIf="customerName.errors.required">
-            Please provide your name.
-        //</div>
-        <!-- <div *ngIf="customerName.errors.minlength">
-            The title of the blog must contain at least 6 characters.
-        </div> -->
-        <!-- </div> -->
+   
     
 </div>
 
