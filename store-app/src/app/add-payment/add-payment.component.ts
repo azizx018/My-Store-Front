@@ -26,7 +26,8 @@ export class AddPaymentComponent implements OnInit {
       this.cartService.setName(this.fullName)
       this.router.navigate(['order-success'])
     }
-
   }
+
+
 
 }
